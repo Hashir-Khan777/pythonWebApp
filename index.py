@@ -8,9 +8,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/about")
+@app.route("/about", methods=["GET", "POST"])
 def about():
-    return render_template("about.html")
+    if request.method == "GET":
+        return render_template("about.html")
+    else:
+        return render_template("about.html", form_data=request.form)
 
 
 @app.route("/form", methods=["GET", "POST"])

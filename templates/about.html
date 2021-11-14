@@ -10,10 +10,14 @@
     <a href="/">Home page</a>
     <a href="/about">About page</a>
     <h1>About Page</h1>
-    <form action="/form" method="POST">
+    <form action="/about" method="POST">
       <input type="text" name="name" placeholder="name" />
       <input type="password" name="password" placeholder="password" />
       <button>submit</button>
     </form>
+    {% if form_data %} {% for key,value in form_data.items() %}
+    <h2>{{ key }}</h2>
+    <p>{{ value }}</p>
+    {% endfor %} {% endif %}
   </body>
 </html>
